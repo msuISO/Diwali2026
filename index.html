@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- Security policy: only run scripts from this site, fonts from Google, no forms on this page -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https:; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+  <!-- Security policy: only run scripts from this site, fonts from Google, no frames or forms -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Diwali Night | Indian Students' Organisation at MSU</title>
   <meta name="description" content="Friday, November 6, 7–10 pm at the MSU Union Ballroom. Dinner and music by DJ Amped. Tier 2 tickets on sale now.">
@@ -21,7 +21,7 @@
       --plum:#31263d;         /* invitation card */
       --zari:#c9a45c;         /* antique gold */
       --zari-deep:#8a6a2c;    /* gold for text on white */
-      --paper:#fffdf8;        /* reply card, close to Omella's white */
+      --paper:#fffdf8;        /* reply card */
       --text:#efe7da;
       --muted:#b5a9bb;
       --paper-text:#2a2133;
@@ -71,19 +71,19 @@
     .buy:active{transform:translateY(1px)}
     .cal{display:table;margin:16px auto 0;font-size:.9375rem}
 
-    /* Reply card holding the Omella checkout */
-    .tickets{grid-area:tickets;scroll-margin-top:16px;padding:28px 22px 22px;background:var(--paper);color:var(--paper-text);box-shadow:inset 0 0 0 7px var(--paper),inset 0 0 0 8px var(--zari)}
+    /* Reply card with the ticket button */
+    .tickets{grid-area:tickets;scroll-margin-top:16px;padding:28px 24px 24px;background:var(--paper);color:var(--paper-text);box-shadow:inset 0 0 0 7px var(--paper),inset 0 0 0 8px var(--zari)}
     .tickets h2{margin:0;font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1.15}
-    .tickets a{text-decoration-color:var(--zari-deep)}
-    .tickets a:hover{color:var(--zari-deep)}
+    .tickets a:focus-visible{outline-color:var(--zari-deep)}
     .tiers{list-style:none;margin:14px 0 0;padding:0;border-top:1px solid var(--rule-paper)}
     .tiers li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--rule-paper)}
     .tiers .sold{color:var(--paper-muted)}
     .tiers .open .status{color:var(--zari-deep);font-weight:600}
     .note{margin:14px 0 0;font-size:.9375rem;color:var(--paper-muted)}
-    .checkout{margin-top:18px}
-    .checkout iframe{display:block;width:100%;height:900px;border:0}
-    .fineprint{margin:12px 0 0;font-size:.875rem;color:var(--paper-muted)}
+    .pay{display:block;margin-top:22px;padding:15px 20px;border-radius:4px;background:var(--ink);color:var(--text);font-weight:600;font-size:1.0625rem;text-align:center;text-decoration:none}
+    .pay:hover{background:var(--plum);color:var(--text)}
+    .pay:active{transform:translateY(1px)}
+    .fineprint{margin:12px 0 0;font-size:.875rem;line-height:1.5;color:var(--paper-muted)}
 
     /* The meaning of the word */
     .meaning{grid-area:meaning}
@@ -99,18 +99,18 @@
       .invite{margin-top:100px;padding:0 18px 32px}
       .arch{height:88px}
       .crest{width:68px;height:68px;margin-top:-50px}
-      .tickets{padding:24px 16px 18px}
+      .tickets{padding:24px 18px 20px}
     }
     @media (min-width:960px){
       .wrap{max-width:72rem;padding:0 40px}
-      .layout{grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);grid-template-rows:auto 1fr;grid-template-areas:"invite tickets" "meaning tickets";column-gap:72px;align-items:start}
+      .layout{grid-template-columns:minmax(0,7fr) minmax(0,5fr);grid-template-rows:auto 1fr;grid-template-areas:"invite tickets" "meaning tickets";column-gap:72px;align-items:start}
       .invite{margin-top:136px;padding:0 40px 44px}
       .arch{height:120px}
       .crest{width:84px;height:84px;margin-top:-66px}
       h1{font-size:4.5rem}
       .buy{display:none}
       .cal{margin-top:28px}
-      .tickets{margin-top:16px;padding:36px 34px 28px}
+      .tickets{position:sticky;top:32px;margin-top:136px;padding:36px 32px 30px}
     }
     @media (prefers-reduced-motion:reduce){
       html{scroll-behavior:auto}
@@ -155,4 +155,64 @@
                 <ellipse cx="30" cy="38.5" rx="19" ry="3" fill="#2e1d0c"/>
               </g>
             </defs>
-            <g class="lamp" style="--i:0"><circle class="glow" cx="30" cy="27" r="24"/><use href="#bowl"/><path class="flame" d="M30 12C36 22 37 30 30
+            <g class="lamp" style="--i:0"><circle class="glow" cx="30" cy="27" r="24"/><use href="#bowl"/><path class="flame" d="M30 12C36 22 37 30 30 37C23 30 24 22 30 12Z"/></g>
+            <g class="lamp" style="--i:1" transform="translate(60)"><circle class="glow" cx="30" cy="27" r="24"/><use href="#bowl"/><path class="flame" d="M30 12C36 22 37 30 30 37C23 30 24 22 30 12Z"/></g>
+            <g class="lamp" style="--i:2" transform="translate(120)"><circle class="glow" cx="30" cy="27" r="24"/><use href="#bowl"/><path class="flame" d="M30 12C36 22 37 30 30 37C23 30 24 22 30 12Z"/></g>
+            <g class="lamp" style="--i:3" transform="translate(180)"><circle class="glow" cx="30" cy="27" r="24"/><use href="#bowl"/><path class="flame" d="M30 12C36 22 37 30 30 37C23 30 24 22 30 12Z"/></g>
+            <g class="lamp" style="--i:4" transform="translate(240)"><circle class="glow" cx="30" cy="27" r="24"/><use href="#bowl"/><path class="flame" d="M30 12C36 22 37 30 30 37C23 30 24 22 30 12Z"/></g>
+            <g class="lamp" style="--i:5" transform="translate(300)"><circle class="glow" cx="30" cy="27" r="24"/><use href="#bowl"/><path class="flame" d="M30 12C36 22 37 30 30 37C23 30 24 22 30 12Z"/></g>
+            <g class="lamp" style="--i:6" transform="translate(360)"><circle class="glow" cx="30" cy="27" r="24"/><use href="#bowl"/><path class="flame" d="M30 12C36 22 37 30 30 37C23 30 24 22 30 12Z"/></g>
+            <g class="lamp" style="--i:7" transform="translate(420)"><circle class="glow" cx="30" cy="27" r="24"/><use href="#bowl"/><path class="flame" d="M30 12C36 22 37 30 30 37C23 30 24 22 30 12Z"/></g>
+            <g class="lamp" style="--i:8" transform="translate(480)"><circle class="glow" cx="30" cy="27" r="24"/><use href="#bowl"/><path class="flame" d="M30 12C36 22 37 30 30 37C23 30 24 22 30 12Z"/></g>
+          </svg>
+
+          <dl class="details">
+            <div>
+              <dt>When</dt>
+              <dd>Friday, November 6, 7–10 pm<span class="soon" id="soon"></span></dd>
+            </div>
+            <div>
+              <dt>Where</dt>
+              <dd>MSU Union Ballroom<br>49 Abbot Road, East Lansing<br>
+                <a href="https://www.google.com/maps/search/?api=1&amp;query=MSU+Union+49+Abbot+Rd+East+Lansing+MI" target="_blank" rel="noopener noreferrer">Get directions</a></dd>
+            </div>
+            <div>
+              <dt>What&rsquo;s on</dt>
+              <dd>Dinner and dancing, with music by DJ Amped</dd>
+            </div>
+          </dl>
+
+          <a class="buy" href="https://omella.com/ajv33">Buy tickets</a>
+          <a class="cal" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=ISO%20Diwali%20Night&amp;dates=20261107T000000Z/20261107T030000Z&amp;location=MSU%20Union%20Ballroom%2C%2049%20Abbot%20Rd%2C%20East%20Lansing%2C%20MI&amp;details=Dinner%20and%20music%20by%20DJ%20Amped.%20Tickets%3A%20https%3A%2F%2Fmsuiso.github.io%2FDiwali2026%2F" target="_blank" rel="noopener noreferrer">Add to Google Calendar</a>
+        </div>
+      </article>
+
+      <section class="tickets" id="tickets" aria-labelledby="tickets-title">
+        <h2 id="tickets-title">Tickets</h2>
+        <ul class="tiers">
+          <li class="sold"><span>Tier 1</span><span class="status">Sold out</span></li>
+          <li class="open"><span>Tier 2</span><span class="status">On sale now</span></li>
+        </ul>
+        <p class="note">Every ticket includes dinner. All sales are final, and tickets can&rsquo;t be refunded.</p>
+        <a class="pay" href="https://omella.com/ajv33">Buy tickets</a>
+        <p class="fineprint">You&rsquo;ll check out on Omella, the payment service ISO uses. Your card details go to Omella, never to this page.</p>
+      </section>
+
+      <section class="meaning">
+        <h2 class="deva" lang="hi">दीपावली</h2>
+        <p class="gloss">Dīpāvalī, from <i>dīpa</i>, a lamp, and <i>āvali</i>, a row.</p>
+        <p class="text">Diwali is the festival of lights, celebrated by Hindus, Sikhs, Jains, and some Buddhists. It falls on the new moon, the darkest night of the month, so homes are lit with rows of lamps. People draw rangoli patterns in colored powder at their doors, share sweets, and spend the evening with family and friends.</p>
+        <p class="text">You don&rsquo;t need to have celebrated Diwali before to come.</p>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>Hosted by the Indian Students&rsquo; Organisation at Michigan State University.</p>
+      <p>Questions? Message <a href="https://www.instagram.com/msu.india/" target="_blank" rel="noopener noreferrer">@msu.india</a> on Instagram.</p>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
